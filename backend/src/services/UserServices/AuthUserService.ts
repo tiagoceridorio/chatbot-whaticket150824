@@ -34,6 +34,9 @@ const AuthUserService = async ({
     where: { email },
     include: ["queues", { model: Company, include: [{ model: Setting }] }]
   });
+
+  console.log(user);
+
   if (!user) {
     throw new AppError("ERR_INVALID_CREDENTIALS", 401);
   }
